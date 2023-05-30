@@ -63,17 +63,14 @@ function playRound (playerSelection,computerSelection) {
 
 //This function loops the game 5 times and declares a winner//
 function game() {
-
-  //envokes the ComputerChoice function// 
-    computerWeapon = getComputerChoice();
-
-  let n = 0;
-
+  
   let round = 0;
   let playerScore = 0;
   let computerScore = 0;
 
   while (round < 5) {
+    //envokes the ComputerChoice function// 
+    computerWeapon = getComputerChoice();
     // Allows the player to choose their "weapon" via a prompt//
     playerWeapon = prompt("Choose your weapon!",);
     let firstChar = playerWeapon[0];
