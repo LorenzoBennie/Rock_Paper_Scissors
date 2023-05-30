@@ -61,7 +61,7 @@ function playRound (playerSelection,computerSelection) {
     
 }
 
-//This function loops the game 5 times and declares a winner//
+//This function loops the game until a player reaches 5 and declares a winner//
 function game() {
   
   let round = 0;
