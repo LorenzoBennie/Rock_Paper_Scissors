@@ -7,21 +7,7 @@ function getComputerChoice () {
 
 //function that executes one round of the game//
 function playRound (playerSelection,computerSelection) {
-
-// Allows the player to choose their "weapon" via a prompt//
-  playerSelection = prompt("Choose your weapon!",);
-  let firstChar = playerSelection[0];
-  let otherChar = playerSelection.slice(1,);
-  firstChar = firstChar.toUpperCase();
-  otherChar = otherChar.toLowerCase();
-  playerSelection = firstChar + otherChar;
   
-  //envokes the ComputerChoice function and compares it with the player choice, returning a string//
-  computerSelection  = getComputerChoice();
-
-  console.log(playerSelection);
-  console.log(computerSelection);
-
   //executes if player chooses Rock//
   if (playerSelection === "Rock") {
     switch(computerSelection) {
@@ -68,9 +54,58 @@ function playRound (playerSelection,computerSelection) {
         break;
         
       case "Paper":
-        return "Scissors cuts paper. win!"  
+        return "Scissors cuts paper. You win!"  
 
     }    
   }  
     
+}
+
+//This function loops the game 5 times and declares a winner//
+function game() {
+
+  //envokes the ComputerChoice function// 
+    computerWeapon = getComputerChoice();
+
+  let n = 0;
+
+  let round = 0;
+  let playerScore = 0;
+  let computerScore = 0;
+
+  while (round < 5) {
+    // Allows the player to choose their "weapon" via a prompt//
+    playerWeapon = prompt("Choose your weapon!",);
+    let firstChar = playerWeapon[0];
+    let otherChar = playerWeapon.slice(1,);
+    firstChar = firstChar.toUpperCase();
+    otherChar = otherChar.toLowerCase();
+    playerWeapon = firstChar + otherChar;
+
+    //records the outcome of one round and counts the number of rounds played//
+    let roundOutcome = playRound(playerWeapon,computerWeapon);
+    alert(roundOutcome);
+    round = round + 1;
+
+    //Checks for a loss or a win and applies a score for the player or computer//
+    if (roundOutcome.includes("win")) {
+      playerScore = playerScore + 1;
+    }
+    else if (roundOutcome.includes("lose")) {
+      computerScore = computerScore + 1;
+    }
+  }
+  
+  console.log(round);
+  console.log(playerScore);
+  console.log(computerScore);
+
+  //compares scores and declares a winner//
+  if (playerScore > computerScore) {
+    alert("Congratulations, you win!");
+  }
+
+  else if (playerScore < computerScore) {
+    alert("Unlucky, you lose!")
+  }
 }
