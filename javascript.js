@@ -68,7 +68,7 @@ function game() {
   let playerScore = 0;
   let computerScore = 0;
 
-  while (round < 5) {
+  while (playerScore < 5 && computerScore < 5) {
     //envokes the ComputerChoice function// 
     computerWeapon = getComputerChoice();
     // Allows the player to choose their "weapon" via a prompt//
@@ -81,8 +81,14 @@ function game() {
 
     //records the outcome of one round and counts the number of rounds played//
     let roundOutcome = playRound(playerWeapon,computerWeapon);
-    alert(roundOutcome);
+
+    if (roundOutcome.includes("tie")) {
+      alert(roundOutcome + "\n" + "Your score:" + playerScore + " Computer score:" + computerScore);
+      continue;
+    }
+    else {
     round = round + 1;
+    }
 
     //Checks for a loss or a win and applies a score for the player or computer//
     if (roundOutcome.includes("win")) {
@@ -91,6 +97,8 @@ function game() {
     else if (roundOutcome.includes("lose")) {
       computerScore = computerScore + 1;
     }
+
+    alert(roundOutcome + "\n" + "Your score:" + playerScore + " Computer score:" + computerScore);
   }
   
   console.log(round);
