@@ -6,22 +6,28 @@
     <meta charset="UTF-8">
     <title>Rock,Paper,Scissors</title>
     <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
-    <div>
-      <button class="Rock">Rock</button>
-      <button class="Paper">Paper</button>
-      <button class="Scissors">Scissors</button>
-    </div>
+    <div class="game_container">
+      <div class="button_container">
+        <button class="Rock"><img alt="rock_image" src="./images/rock.jpeg"></button>
+        <button class="Paper"><img alt="paper_image" src="./images/paper.jpg"></button>
+        <button class="Scissors"><img alt="scissors_image" src="./images/scissors.jpg"></button>
+      </div>
 
-    <div>
-      <p class="player">Your choice:</p>
-      <p class="comp">Computer choice:</p>
-      <p class="outcome">Result</p>
-      <p class="player_score">Your score: 0</p>
-      <p class="comp_score">Computer score: 0</p>
-    </div>
+      <div>
+        <div class="choices">
+          <p class="player">Your choice:</p>
+          <p class="comp">Computer choice:</p>
+        </div>
+        <p class="outcome">Result</p>
+        <div class="score">  
+          <p class="player_score">Your score: 0</p>
+          <p class="comp_score">Computer score: 0</p>
+        </div>
+    </div>  
 
 
   </body>
